@@ -1,3 +1,5 @@
+package week1;
+
 class FlexibleWork {
     /**
      * startday일때 토요일,일요일이 되는 index를 찾아야함.
