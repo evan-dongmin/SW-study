@@ -1,0 +1,42 @@
+# Prometheus 설정 파일
+# https://prometheus.io/docs/prometheus/latest/configuration/configuration/ 공식문서 참고
+
+# global - Prometheus의 전반적인 설정을 관리
+global:
+  # metric 수집 주기
+  scrape_interval: 15s
+  # metric 수집 타임아웃 시간
+  scrape_timeout: 15s
+  # rule 평가 주기
+  evaluation_interval: 2m
+
+  # The labels to add to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  # Environment variable references `${var}` or `$var` are replaced according
+  # to the values of the current environment variables.
+  # References to undefined variables are replaced by the empty string.
+  # The `$` character can be escaped by using `$$`.
+  external_labels:
+    monitor: 'codelab-monitor'
+    # File to which PromQL queries are logged.
+    # Reloading the configuration will reopen the file.
+    query_log_file: query_log_file.log
+
+
+# A list of scrape configurations.
+scrape_configs:
+    # 정보를 수집할 서버 정보(http통신이 기본)
+  - job_name: 'spring-actuator'
+    # metric을 수집할 주기
+    scrape_interval: 10s
+    # metric을 수집할 타임아웃 시간
+    scrape_timeout: 10s
+    # metric을 수집할 actuator path 지정
+    metrics_path: '/actuator/prometheus'
+    # 정보수집할때 사용할 프로토콜
+    scheme: 'http'
+    # Target 지정 ip:port 형식
+    static_configs:
+      - targets: ['target-server-ip:8080']
+        labels:
+          service: 'monitor'
