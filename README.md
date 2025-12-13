@@ -1,13 +1,13 @@
 # SW-study
 주말 BE, AI 스터디
 
+[노션 링크](https://evan-portfolio.notion.site/SW-2a642ce889468029b1b5fe871f813f58?pvs=74)
+
 ## 학습 항목
 
 ### 알고리즘
 
 **프로그래머스 대회 LV 2,3 문제 주 2,3문제 풀이 및 리뷰**
-
-1. [2025 프로그래머스 코드챌린지 1차 예선](https://school.programmers.co.kr/learn/challenges?order=recent&partIds=81177)
 
 **라이브 코테**
 
